@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %} {% endblock %}
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Ubuntu&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" media="screen and (max-width:1170px)"" href="css/phone.css">  -->
+    {% block css %}
+    <link rel="stylesheet" href="style.css"> {% endblock %}
+    {% block css1 %}
+    <style>
+        .btn {
+            margin: 1px;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 2px;
+            border: 2px solid white;
+            border-radius: 4px;
+            background-color: white;
+            color: black;
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.5rem;
+            transition: all 0.2s ease-out 0s;
+        }
+    </style>
+    {% endblock %}
+
+</head>
+
+<body>
+    <header class="header">
+        <nav id="navbar">
+            <div id="logo">
+                <img src='{% static "r_assets/img/wall-img/ram-logo.jpeg" %}' alt="Ram Elegancy.com">
+            </div>
+
+            <ul>
+                <li class="item"><a href="#">Home</a></li>
+                <li class="item"><a href="#">Stones and Jewellery</a></li>
+                <li class="item"><a href="contact">Contact Us</a></li>
+                <li class="nav-item">
+
+            </ul>
+            <div class="container-form">
+                <form class="basic-form">
+                    <input type="search" class="con-form" placeholder="search">
+                    <i class="fas fa-search fa-1x"
+                        style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
+                    <!-- <button class="btn" type="submit">Search</button> -->
+                </form>
+                <button type="button" class="cart-btn" id="popcart" data-bs-container="body" data-bs-toggle="popover"
+                    data-bs-placement="bottom" data-bs-content="Bottom popover">
+                    <i class="fas fa-shopping-cart fa-1x"></i><sup> (<span id="count_cart">0</span>)</sup>
+                </button>
+                <i class="fas fa-map-marker-alt fa-1x"
+                    style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
+                <i class="fas fa-heart fa-1x"
+                    style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
+            </div>
+        </nav>
+    </header>
+    {% block body %} {% endblock %}
+
+    <footer>
+        <div class="center">
+            Copyright &copy; www.ramelegancy.com. All Right Reserved!
+        </div>
+    </footer>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    {% block js %}
+    <script>
+        if (localStorage.getItem('stone_cart') == null) {
+            var cart_list = {};
+        }
+        else {
+            cart_list = JSON.parse(localStorage.getItem('stone_cart'));
+            document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
+        }
+        $('.cart').click(function () {
+            var idstr = this.id.toString();
+            console.log(idstr);
+            if (cart_list[idstr] != undefined) {
+                cart_list[idstr] = cart_list[idstr] + 1;
+                console.log(cart_list[idstr]);
+
+            }
+            else {
+                cart_list[idstr] = 1;
+                // updateCart(cart_list);
+            }
+            console.log(cart_list);
+            localStorage.setItem('stone_cart', JSON.stringify(cart_list));
+            document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
+        });
+
+
+        // function updateCart(cart_list) {
+        //     for (var item in cart_list) {
+        //         document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'> - </button> <span id='val" + item + "''>" + cart_list[item] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
+        //     }
+        //     localStorage.setItem('stone_cart', JSON.stringify(cart_list));
+        //     document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
+        //     console.log(cart_list);
+        // }
+        // // If plus or minus button is clicked, change the cart as well as the display value
+        // $('.divpr').on("click", "button.minus", function () {
+        //     a = this.id.slice(7,);
+        //     cart_list['pr' + a] = cart_list['pr' + a] - 1;
+        //     cart_list['pr' + a] = Math.max(0, cart_list['pr' + a]);
+        //     document.getElementById('valpr' + a).innerHTML = cart_list['pr' + a];
+        //     updateCart(cart_list);
+        // });
+        // $('.divpr').on("click", "button.plus", function () {
+        //     a = this.id.slice(6,);
+        //     cart_list['pr' + a] = cart_list['pr' + a] + 1;
+        //     document.getElementById('valpr' + a).innerHTML = cart_list['pr' + a];
+        //     updateCart(cart_list);
+        // });
+
+
+    // $('#popcart').popover();
+    //     document.getElementById('popcart').setAttribute('data-bs-content', '<h5>Cart for your items in my shopping cart</h5>');
+    //     updatePopover(cart_list);
+    //     function updatePopover(cart_list) {
+
+    //         var popStr = "";
+    //         popStr = "<h5>Cart</h5>";
+    //         document.getElementById('popcart').setAttribute('data-bs-content', popStr);
+    //         console.log("inside popover");
+    //         $('#popcart').popover('show');
+    //     }
+    </script>
+    {% endblock%}
+
+</body>
+
+</html>

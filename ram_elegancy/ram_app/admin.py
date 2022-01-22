@@ -1,0 +1,25 @@
+from django.contrib import admin
+from .models import Bangels, Earring, Mangalsutra, P_stone,Sp_stone,Jewellery,P_diamond,P_emerald,P_yellow_sapphire,P_blue_sapphire, P_ruby, P_coral,P_hessonite_garnet,P_pearl,P_cateye,Ring,Nosepin,Bracelet,Pendent,Necklace,Contact
+# Register your models here.
+
+admin.site.register(P_stone)
+admin.site.register(Sp_stone)
+admin.site.register(Jewellery)
+admin.site.register(P_diamond)
+admin.site.register(P_emerald)
+admin.site.register(P_yellow_sapphire)
+admin.site.register(P_blue_sapphire)
+admin.site.register( P_ruby)
+admin.site.register( P_coral)
+admin.site.register(P_hessonite_garnet)
+admin.site.register(P_pearl)
+admin.site.register(P_cateye)
+admin.site.register(Ring)
+admin.site.register(Bangels)
+admin.site.register(Mangalsutra)
+admin.site.register(Earring)
+admin.site.register(Nosepin)
+admin.site.register(Bracelet)
+admin.site.register(Pendent)
+admin.site.register(Necklace)
+admin.site.register(Contact)

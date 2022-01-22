@@ -1,0 +1,81 @@
+{% extends 'ram_app/basic.html' %}
+{% load static %}
+<!-- {% block title %} {% endblock %} -->
+{% block css %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
+{% block css1 %}
+<style>
+    #home::before {
+        background:url('{% static "r_assets/img/pic8.png" %}') no-repeat center center/cover;
+    }
+</style>
+{% endblock %}
+{% block body %}
+
+<section id="home">
+    <video width="250" height="250" autoplay>  <source src="{% static 'r_assets/img/Ram_Elegancy.mp4' %}" type="video/mp4"></video>
+    <h1 class="h-primary">Stones and Jewellery Has the Power to Makes You Feel Unique</h1>
+    <button class="btn">Shop Now</button>
+</section>
+
+<section class="describe-content">
+    <h1 class="h-secondary center">Put a gem in your life</h1>
+    <div id="describe">
+        <div class="icon">
+            <div class="des"><i class="fas fa-certificate fa-2x"></i></div>
+            <div class="desc">
+                <p>100% Certified</p>
+            </div>
+        </div>
+        <div class="icon">
+            <div class="des"><i class="fas fa-rupee-sign fa-2x"></i></div>
+            <div class="desc">
+                <p>Transparent Pricing</p>
+            </div>
+        </div>
+        <div class="icon">
+            <div class="des"></i><i class="fas fa-gem fa-2x"></i></div>
+            <div class="desc">
+                <p>Excellent Quality</p>
+            </div>
+        </div>
+        <div class="icon">
+            <div class="des"><i class="fas fa-undo-alt fa-2x"></i></div>
+            <div class="desc">
+                <p>Lifetime Buyback</p>
+            </div>
+        </div>
+        <div class="icon">
+            <div class="des"><i class="fas fa-magic fa-2x"></i></div>
+            <div class="desc">
+                <p>Conflict Free Stones</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="services-container">
+    <h1 class="h-primary center">Gems from the earth</h1>
+    <div id="services">
+        <div class="box">
+          <a href="p_stone"> <img src='{% static "r_assets/img/pic2.jpg" %}' alt=""></a> 
+            <h2 class="h-secondary center">Precious Stones</h2>
+        </div>
+        <div class="box">
+            <a href="sp_stone"> <img src='{% static "r_assets/img/wall-img/pic2.jpg" %}' alt=""></a>
+            <h2 class="h-secondary center">Semi-Precious Stones</h2>
+        </div>
+        <div class="box">
+            <a href="jewel"><img src='{% static "r_assets/img/wall-img/pic3.jpg" %}' alt=""></a>
+            <h2 class="h-secondary center">Jewellery Selections</h2>
+        
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block js %} 
+<script>
+   
+</script>
+{% endblock %}

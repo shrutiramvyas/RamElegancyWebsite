@@ -1,0 +1,38 @@
+{% extends 'ram_app/basic.html' %}
+{% load static %}
+{% block title %}{{product.d_name}} {% endblock %}
+<!-- {% block css %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %} -->
+{% block css1 %}
+<style>
+.container .row button{
+    margin-left:50px;
+    background-color:rgb(172, 163, 33);
+    text-decoration: none;
+    border-radius:10px;
+}
+</style>
+{% endblock %}
+{% block body %}
+{{product.d_name}}
+<div class="container">
+    <div class ="col-md-4">
+    <div class="row">
+        
+        {{product.d_name}}
+       <img src="/media/{{product.image}}" width="233px" height="385px">
+    </div>
+    <div class="row">
+        <button class="btn btn-success mx-2">Buy Now</button>
+        <button class="btn btn-success mx-2">Add to Bag</button>
+
+    </div>
+    </div>
+    <div class ="col-md-8">
+    <div class="row">
+       <h5> {{product.d_name}} </h5>
+       <p>{{product.d_desc}}</p>
+    </div>
+    </div>
+</div>
+{% endblock %}
