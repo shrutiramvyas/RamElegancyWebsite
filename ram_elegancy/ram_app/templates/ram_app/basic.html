@@ -114,6 +114,7 @@
                 cart_list[idstr] = 1;
                 // updateCart(cart_list);
             }
+            console.log("hello");
             console.log(cart_list);
             localStorage.setItem('stone_cart', JSON.stringify(cart_list));
             document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
