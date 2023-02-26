@@ -1,100 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 {% load static %}
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking the stylesheet -->
     {% block title %} {% endblock %}
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Ubuntu&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
-    <!-- <link rel="stylesheet" media="screen and (max-width:1170px)"" href="css/phone.css">  -->
     {% block css %}
-    <link rel="stylesheet" href="style.css"> {% endblock %}
-    {% block css1 %}
-    <style>
-        .btn {
-            margin: 1px;
-            justify-content: center;
-            align-items: center;
-            padding: 5px 2px;
-            border: 2px solid white;
-            border-radius: 4px;
-            background-color: white;
-            color: black;
-            font-family: 'Rubik', sans-serif;
-            font-size: 1.5rem;
-            transition: all 0.2s ease-out 0s;
-        }
-    </style>
-    {% endblock %}
-
+    <link rel="stylesheet" href="basic.css"> {% endblock %}
+     {% block css1 %} {% endblock %}
+    <script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- Linking the Jquery script  -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
-    <header class="header">
-        <nav id="navbar">
-            <div id="logo">
-                <img src='{% static "r_assets/img/wall-img/ram-logo.jpeg" %}' alt="Ram Elegancy.com">
-            </div>
-
-            <ul>
-                <li class="item"><a href="#">Home</a></li>
-                <li class="item"><a href="#">Stones and Jewellery</a></li>
-                <li class="item"><a href="contact">Contact Us</a></li>
-                <li class="nav-item">
-
-            </ul>
-            <div class="container-form">
-                <form class="basic-form">
-                    <input type="search" class="con-form" placeholder="search">
-                    <i class="fas fa-search fa-1x"
-                        style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
-                    <!-- <button class="btn" type="submit">Search</button> -->
-                </form>
-                <button type="button" class="cart-btn" id="popcart" data-bs-container="body" data-bs-toggle="popover"
-                    data-bs-placement="bottom" data-bs-content="Bottom popover">
-                    <i class="fas fa-shopping-cart fa-1x"></i><sup> (<span id="count_cart">0</span>)</sup>
-                </button>
-                <i class="fas fa-map-marker-alt fa-1x"
-                    style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
-                <i class="fas fa-heart fa-1x"
-                    style="color: rgb(218, 213, 197); margin-top: 13px; padding:8px;cursor: pointer;"></i>
-            </div>
-        </nav>
-    </header>
-    {% block body %} {% endblock %}
-
-    <footer>
-        <div class="center">
-            Copyright &copy; www.ramelegancy.com. All Right Reserved!
+    <nav>
+        <div id="logo">
+            <img src='{% static "r_assets/img/gemsmadala-removebg.png" %}' alt="Ram Elegancy.com">
         </div>
-    </footer>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        <div class="logo">
+            Ram Elegancy
+        </div>
+
+        <div class="nav-items">
+
+            <!-- The Menu items -->
+            <li><a href="#">HOME</a></li>
+            <li class="dropdown"><a href="#">GEMSTONES</a><i class="fa fa-caret-down" style="color: #fff;"></i>
+
+                <div class="dropdown-content">
+                    <div class="row">
+                        <div class="v1"></div>
+                        <div class=" column">
+                            <h3>Precious stones</h3>
+                            <a href="#">Diamond</a>
+                            <a href="#">Emerald</a>
+                            <a href="#">Ruby</a>
+                            <a href="#">Yellow Sapphire</a>
+                            <a href="#">Blue Sapphire</a>
+                            <a href="#">Cats Eye</a>
+                            <a href="#">Coral</a>
+                            <a href="#">Pearl</a>
+                            <a href="#">Hessonite-Garnet</a>
+                        </div>
+
+                        <div class="v2"></div>
+                        <div class="column2 column">
+                            <h3>Semi precious stones</h3>
+                            <div class="row">
+                                <div class="column">
+                                    <a href="#">Amethyst
+                                        <a href="#">Citrine (Sunela)</a>
+                                        <a href="#">Fire Opal</a>
+                                        <a href="#">Garnet</a>
+                                        <a href="#">Iolite (Neeli)</a>
+                                        <a href="#">Navratna</a>
+                                        <a href="#">Opal</a>
+                                        <a href="#">Peridot</a>
+                                        <a href="#">Pitambari Neelam</a>
+                                        <a href="#">Turquoise (Firoza)</a>
+                                        <a href="#">White Coral</a>
+                                        <a href="#">Yellow Topaz</a>
+                                        <a href="#">Zircon</a>
+
+                                </div>
+                                <div class="column">
+                                    <a href="#">Alexandrite</a>
+                                    <a href="#">Burmese Ruby</a>
+                                    <a href="#">Colombian Emerald</a>
+                                    <a href="#">Cornflower Blue Sapphire</a>
+                                    <a href="#">Kashmir Blue Sapphire</a>
+                                    <a href="#">No Oil Emerald</a>
+                                    <a href="#">Padparadscha</a>
+                                    <a href="#">Panjshir Emerald</a>
+                                    <a href="#">Paraiba Tourmaline</a>
+                                    <a href="#">Pigeon Blood Ruby</a>
+                                    <a href="#">Pink Sapphire</a>
+
+
+                                </div>
+                                <div class="column">
+                                    <a href="#"> Amber</a>
+                                    <a href="#"> Ametrine</a>
+                                    <a href="#"> Aquamarine</a>
+                                    <a href="#"> Blue Topaz</a>
+                                    <a href="#"> Kyanite</a>
+                                    <a href="#"> Lapis Lazuli</a>
+                                    <a href="#">Moldavite</a>
+                                    <a href="#"> Moonstone</a>
+                                    <a href="#"> Star Ruby</a>
+                                    <a href="#"> Tourmaline</a>
+                                    <a href="#">Spinel</a>
+                                    <a href="#">Blue Zircon</a>
+                                    <a href="#">Royal Blue Sapphire</a>
+                                    <a href="#">Tanzanite</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <h3>Jewellery</h3>
+                            <a href="#">Pendent</a>
+                            <a href="#">Mangalsutra</a>
+                            <a href="#">Bracelet</a>
+                            <a href="#">Bangels</a>
+                            <a href="#">Necklace</a>
+                            <a href="#">Ear-Ring</a>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li><a href="#">CONTACT US</a></li>
+        </div>
+
+        <!-- Defining the search bars -->
+        <div class="searchbar">
+            <input type="text" placeholder="search">
+            <div class="icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        <a href="#">
+            <i class="fas fa-heart" fa-2x" style="color: white;">
+            </i>
+        </a>
+
+
+        <a href="checkout">
+            <i class="fa fa-shopping-bag" aria-hidden="true" fa-2x" style="color: white;"><sup>(<span id="count_cart">0</span>)</sup>
+            </i>
+        </a>
+
+        <!-- Defining the login button -->
+        <div class="licon">
+            <li class="a-dropdown" onclick="myFunction()">
+                <a href="#">
+                    <i class="fas fa-user-circle
+						fa-2x" style="color: white;"> </a></i>
+                <div class="a-dropdown-content" id="myDIV">
+                    <div class="a-asked">
+                        <p>Already Registerd?</p>
+                        <a href="#" id="create">Create an Account</a>
+                    </div>
+                    <hr>
+                    <div class="a-asked">
+                        <p>Already Registerd?</p>
+                        <a href="#" id="login">Log In</a>
+                    </div>
+                    <hr>
+                    <div class="login-with-fb">
+                        <div class="face">
+                            <p>Login with <br>FaceBook</p>
+                            <a href="#" class="facebookbtn"><span><i class="fab fa-facebook-f fa-2x"
+                                        style="color:white;">
+                                    </i></span></a>
+                        </div>
+                        <!-- </div> -->
+                        <!-- <div class="login-with-fb"> -->
+                        <div class="g">
+                            <p>Login with <br>Google</p>
+                            <a href="#" class="googlebtn"><span><i class="fab fa-google-plus fa-2x"
+                                        style="color:white;"></i></span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>
+        </a>
+        </div>
+    </nav>
+
+    <div id="image-category">
+
+    </div>
+
+{% block body %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-    {% block js %}
+    {% block js %} 
     <script>
+
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+
         if (localStorage.getItem('stone_cart') == null) {
             var cart_list = {};
         }
@@ -106,58 +214,45 @@
             var idstr = this.id.toString();
             console.log(idstr);
             if (cart_list[idstr] != undefined) {
+                qty = cart_list[idstr] + 1;
                 cart_list[idstr] = cart_list[idstr] + 1;
-                console.log(cart_list[idstr]);
-
+                // console.log(cart_list[idstr]);
             }
             else {
                 cart_list[idstr] = 1;
                 // updateCart(cart_list);
+                qty = 1;
+                cart_list[idstr] = qty;
             }
-            console.log("hello");
-            console.log(cart_list);
+            // console.log(cart_list);
             localStorage.setItem('stone_cart', JSON.stringify(cart_list));
-            document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
+            // console.log(Object.values(cart_list))
+            array = Object.values(cart_list)
+            let sum = 0
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+
+            document.getElementById('count_cart').innerHTML = sum;
         });
-
-
-        // function updateCart(cart_list) {
-        //     for (var item in cart_list) {
-        //         document.getElementById('div' + item).innerHTML = "<button id='minus" + item + "' class='btn btn-primary minus'> - </button> <span id='val" + item + "''>" + cart_list[item] + "</span> <button id='plus" + item + "' class='btn btn-primary plus'> + </button>";
-        //     }
-        //     localStorage.setItem('stone_cart', JSON.stringify(cart_list));
-        //     document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
-        //     console.log(cart_list);
-        // }
-        // // If plus or minus button is clicked, change the cart as well as the display value
-        // $('.divpr').on("click", "button.minus", function () {
-        //     a = this.id.slice(7,);
-        //     cart_list['pr' + a] = cart_list['pr' + a] - 1;
-        //     cart_list['pr' + a] = Math.max(0, cart_list['pr' + a]);
-        //     document.getElementById('valpr' + a).innerHTML = cart_list['pr' + a];
-        //     updateCart(cart_list);
-        // });
-        // $('.divpr').on("click", "button.plus", function () {
-        //     a = this.id.slice(6,);
-        //     cart_list['pr' + a] = cart_list['pr' + a] + 1;
-        //     document.getElementById('valpr' + a).innerHTML = cart_list['pr' + a];
-        //     updateCart(cart_list);
-        // });
-
-
-    // $('#popcart').popover();
-    //     document.getElementById('popcart').setAttribute('data-bs-content', '<h5>Cart for your items in my shopping cart</h5>');
-    //     updatePopover(cart_list);
-    //     function updatePopover(cart_list) {
-
-    //         var popStr = "";
-    //         popStr = "<h5>Cart</h5>";
-    //         document.getElementById('popcart').setAttribute('data-bs-content', popStr);
-    //         console.log("inside popover");
-    //         $('#popcart').popover('show');
-    //     }
+        function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        $(document).ready(function () {
+            $(".fa-search").click(function () {
+                $(".icon").toggleClass("active");
+                $("input[type='text']").toggleClass("active");
+            });
+        });
     </script>
-    {% endblock%}
+   {% endblock%}
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+
 
 </body>
 

@@ -1,38 +1,238 @@
 {% extends 'ram_app/basic.html' %}
 {% load static %}
-{% block title %}{{product.d_name}} {% endblock %}
-<!-- {% block css %}
-<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %} -->
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/basic.css' %}">
+<link rel="stylesheet" href="{% static 'r_assets/rcss/smoothproducts.css' %}">
+{% endblock %}
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
 {% block css1 %}
 <style>
-.container .row button{
-    margin-left:50px;
-    background-color:rgb(172, 163, 33);
-    text-decoration: none;
-    border-radius:10px;
-}
-</style>
-{% endblock %}
-{% block body %}
-{{product.d_name}}
-<div class="container">
-    <div class ="col-md-4">
-    <div class="row">
-        
-        {{product.d_name}}
-       <img src="/media/{{product.image}}" width="233px" height="385px">
-    </div>
-    <div class="row">
-        <button class="btn btn-success mx-2">Buy Now</button>
-        <button class="btn btn-success mx-2">Add to Bag</button>
+    body {
+        background-color: #ece4e4;
+    }
 
-    </div>
-    </div>
-    <div class ="col-md-8">
-    <div class="row">
-       <h5> {{product.d_name}} </h5>
-       <p>{{product.d_desc}}</p>
-    </div>
+    .product-detail {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        padding: 45px 0;
+
+    }
+
+    .product-detail h3 {
+        font-size: 24px;
+        padding: 13px;
+    }
+
+    .product-detail-left {
+        float: left;
+        width: 55%;
+    }
+
+    product-detail-right h3 {
+        font-size: 22px;
+        line-height: 24px;
+        padding-top: 0;
+    }
+
+    .product-detail-right h3 small {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .product-detail-right h5 {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: gray;
+    }
+
+    .product-detail-right h5 b {
+        color: #000;
+
+    }
+
+    .product-detail-right .addtocart {
+        border: 1px solid;
+        color: #ffa800;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    .product-detail-right .writereview {
+        border: 1px solid;
+        color: #ffa800;
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        display: inline-block;
+    }
+
+    .product-detail-right .buynow {
+        border: 1px solid #ffa800;
+        background-color: #ffa800;
+        color: #fff;
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 15px 25px;
+        border-radius: 4px;
+        margin-top: 20px;
+        width: 60%;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .product-detail-feature {
+        width: 100%;
+        float: left;
+        display: inline-block;
+        margin-top: 25px;
+        padding: 15px;
+        background-color: #ffa8001a;
+    }
+
+    .product-detail-feature h3 {
+        font-weight: 500;
+        border-bottom: 1px solid;
+
+    }
+
+    .product-detail-feature p {
+        padding: 15px 0;
+        font-size: 18px;
+        border-bottom: 1px solid #dedede;
+        width: 50%;
+
+    }
+
+    .product-detail .sp-wrap {
+        max-width: 100%;
+
+    }
+
+    .product-detail-left img {
+        max-width: inherit;
+    }
+
+    .product-detail-right .pro-opt-container {
+        float: right;
+        width: 50%;
+        position: relative;margin-top: 30px;
+    }
+
+    .product-detail-right .pro-opt-container h5 {
+        font-size: 28px;
+        color: black;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .product-detail-right .pro-opt-container .pro-opt-images .pro-block button>img {
+        width: 100px;
+        height: 100px;
+
+    }
+    .product-detail-right .pro-opt-container .pro-opt-images .pro-block button:hover {
+        border-color:#ffa800 ;
+
+
+    }
+    .product-detail-right .pro-opt-container .pro-opt-images {
+    display: flex;
+    flex-wrap: wrap;
+}
+.product-detail-right .pro-opt-container .pro-opt-images .pro-block {
+    margin: 10px 10px;
+    text-align: center;
+}
+  
+</style>
+
+{% endblock %}
+
+{% block body %}
+<div class="product-detail">
+    <div class="container">
+        <div class="product-detail-left">
+            <div class="sp-loading">
+                <img src="/media/{{product.image}}"style="height:100px; width:100px; margin:20px;">
+                Loading Images
+            </div>
+            <div class="sp-wrap">
+                <a href="#"><img src="/media/{{product.image}}" alt=""></a>
+                <a href="#"><img src="/media/{{product.image}}" alt=""></a>
+                <a href="#"><img src="/media/{{product.image}}" alt=""></a>
+            </div>
+        </div>
+        <div class="product-detail-right">
+            <h3> {{product.diamond_name}} </h3>
+            <div class="productViewBox-closeBtn"><i class="fas fa-times"></i></div>
+            <div class="productViewBoxImg">
+            </div>
+            <h5><b>Price:<i class="fas fa-rupee-sign"></i>{{product.price}}</b></h5>
+            <h5><b>Clearity:</b>{{product.d_clearity}}</h5>
+            <h5><b>Shape:</b>{{product.shape}}</h5>
+            <h5><b>Carat:</b>{{product.carat}}</h5>
+            <h5><b>Color:</b>{{product.d_color}}</h5>
+            <h5><b>Availablity:</b>In Stock</h5>
+            <h5><b>Product Code:</b>{{product.desc}}</h5>
+            <div class="pro-opt-container">
+                <h5>Select For Ring/Pendent/Bracelet</h5>
+                <div class="pro-opt-images">
+                    <div class="pro-block">
+                        <button><img src="{% static 'r_assets/img/diamond-icon2.png' %}"></button>
+                        <div class="pro-title">
+                            <b>Loose</b>
+                        </div>
+                    </div>
+                   
+                <div class="pro-block">
+                    <button><img src="{% static 'r_assets/img/pendent.png' %}"></button>
+                    <div class="pro-title">
+                        <b>Pendent</b>
+                    </div>
+                </div>
+                
+                <div class="pro-block">
+                    <button><img src="{% static 'r_assets/img/ring.png' %}"></button>
+                    <div class="pro-title">
+                        <b>Ring</b>
+                    </div>
+                </div>
+               
+                <div class="pro-block">
+                    <button><img src="{% static 'r_assets/img/bracelet.png' %}"></button>
+                    <div class="pro-title">
+                        <b>Bracelet</b>
+                    </div>
+                </div>
+               
+            </div>
+            <a href="#" class="addtocart"><i class="fas fa-heart"></i>Add to Cart</a>
+            <a href="#" class="writereview"><i class="fas fa-pen"></i>Write a review</a>
+            <a href="#" class="buynow"><i class="fas fa-shopping cart"></i>Buy Now</a>
+        </div>
+        <div class="product-detail-feature">
+            <h3>Feature</h3>
+        </div>
     </div>
 </div>
+
+<script src="{% static 'r_assets/rjs/smoothproducts.min.js' %}"></script>
+<script>
+    $(function () {
+        $(".sp-wrap").smoothproducts();
+    });
+</script>
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
 {% endblock %}

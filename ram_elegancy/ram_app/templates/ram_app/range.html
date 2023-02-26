@@ -1,0 +1,341 @@
+{% extends 'ram_app/basic.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" media="screen">
+{% endblock %}
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Montserrat:wght@100&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
+    rel="stylesheet">
+
+<!-- {% block css1 %}
+
+
+<style> -->
+   <!-- .container {
+        background-color: whitesmoke;
+    }
+
+    .container .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container .row .col {
+
+        height: 120px;
+        width: 115px;
+        border: 0px solid rgb(197, 195, 189);
+        margin: 10px 20px;
+        box-shadow: 3px 4px 2px rgb(197, 195, 189);
+    }
+
+    .container .row .col:hover {
+        box-shadow: 3px 4px 2px rgb(197, 195, 189), -3px -4px 2px rgb(197, 195, 189);
+    }
+
+    .container .row .col .card {
+        justify-content: center;
+        align-items: center;
+        height: 250px;
+        width: 200px;
+    }
+
+    .container .row .col .card img {
+        margin-left: 22px;
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 70px;
+    }
+
+
+    .container .row .col .card h5 {
+        font-family: 'Playfair Display', serif;
+        color: rgb(51, 51, 45);
+        justify-content: center;
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 2px 7px;
+    }
+
+    .container .row .col .card p {
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(51, 51, 45);
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 2px 30px;
+
+    }
+
+    .container .row .col .card .card-body button {
+        margin-left: 50px;
+        background-color: rgb(49, 172, 33);
+        text-decoration: none;
+        border-radius: 10px;
+    }
+
+    h5 {
+        font-family: 'Playfair Display', serif;
+        color: rgb(51, 51, 45);
+        justify-content: center;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 10px 15px;
+
+
+    }
+
+    .btn {
+        margin: 1px;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 2px;
+        border: 2px solid white;
+        border-radius: 4px;
+        background-color: white;
+        color: black;
+        font-family: 'Rubik', sans-serif;
+        font-size: 1.5rem;
+        transition: all 0.2s ease-out 0s;
+    }
+
+
+    /* Import Google Font - Poppins */
+
+    .price-box {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 25vh;
+        background: whitesmoke;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .price-wrapper {
+        width: 500px;
+        background-color: rgb(197, 195, 189);
+        border-radius: 10px;
+        padding: 10px 12px 28px;
+        margin: 20px;
+
+    }
+
+    ::selection {
+        color: #fff;
+        background: #17A2B8;
+    }
+
+    header h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    header p {
+        margin-top: 5px;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .price-input {
+        width: 100%;
+        display: flex;
+        margin: 13px 0 20px;
+    }
+
+    .price-input .field {
+        display: flex;
+        width: 100%;
+        height: 45px;
+        align-items: center;
+    }
+
+    .field input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        font-size: 20px;
+        font-weight: 200;
+        margin-left: 12px;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #999;
+        -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    .price-input .separator {
+        width: 130px;
+        display: flex;
+        font-size: 19px;
+        font-weight: 200;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slider {
+        height: 5px;
+        position: relative;
+        background: #ddd;
+        border-radius: 5px;
+    }
+
+    .slider .progress {
+        height: 100%;
+        left: 0%;
+        right: 0%;
+        position: absolute;
+        border-radius: 5px;
+        background: #17A2B8;
+    }
+
+    .range-input {
+        position: relative;
+    }
+
+    .range-input input {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        top: -5px;
+        background: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background: #17A2B8;
+        pointer-events: auto;
+        -webkit-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        height: 17px;
+        width: 17px;
+        border: none;
+        border-radius: 50%;
+        background: #17A2B8;
+        pointer-events: auto;
+        -moz-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .carat-wrapper {
+        width: 500px;
+        background-color: rgb(197, 195, 189);
+        border-radius: 10px;
+        padding: 20px 25px 40px;
+        margin: 20px;
+
+    }
+
+    #table {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .table-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-container .table .row1 .d-img img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .table-container .table thead {
+        background-color: rgb(14, 14, 14);
+    }
+
+    .table-container .table tr th {
+        font-family: 'Rubik', sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        margin: 10px 10px;
+        padding: 15px 45px;
+        color: white;
+    }
+
+    .table-container .table tbody .row1 td {
+        justify-content: space-evenly;
+        margin: 0 auto;
+        align-items: center;
+        padding: 3px 0px 3px 20px;
+        font-size: 23px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        text-align: center;
+
+    } */ -->
+<!-- </style>
+
+{% endblock %} -->
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+{% block body %}
+<h5>Select Price and Carat</h5>
+<div class="price-box">
+    <div class="price-wrapper">
+        <header>
+            <h2>Price Range</h2>
+        </header>
+        <div class="price-input">
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Min</span>
+                <input type="number" class="input-min" value="0">
+            </div>
+            <div class="separator">-</div>
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Max</span>
+                <input type="number" class="input-max" value="1000000">
+            </div>
+        </div>
+        <div class="slider">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min" min="0" max="10000000" value="0" step="10000">
+            <input type="range" class="range-max" min="0" max="10000000" value="10000000" step="10000">
+        </div>
+    </div>
+
+    <!-- carat -->
+    <div class="carat-wrapper">
+        <header>
+            <h2>Select Carat</h2>
+        </header>
+        <input type="range" min="0.1" max="3.30" step="0.1" value="1" id="scale">Carat Size: <text
+            style=" font-family:'Rubik', sans-serif;font-size:25px; font-weight: 100;" id="spanscale">1</text>
+
+    </div>
+    <div class="carat-wrapper">
+        <header>
+            <h2>Price per Carat</h2>
+        </header>
+        <input type="range" min="8000" max="60000" step="1200" value="1" id="scale2">Price Per Carat: <text
+            style=" font-family:'Rubik', sans-serif;font-size:25px; font-weight: 100;" id="spanscale2">0</text>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+
+</script>
+{% endblock %}

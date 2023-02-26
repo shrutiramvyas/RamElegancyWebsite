@@ -1,10 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Jewellery, P_stone,P_pearl,P_diamond,P_emerald,P_cateye,P_ruby,P_coral,P_hessonite_garnet,P_blue_sapphire,P_yellow_sapphire,Contact,Sp_stone
+from .models import Jewellery, P_diamond_oval, P_diamond_princess, P_stone,P_pearl,P_emerald,P_cateye,P_ruby,P_coral,P_hessonite_garnet,P_blue_sapphire,P_yellow_sapphire,Contact,Sp_stone,P_diamond_shape,P_diamond_pear,P_diamond_round,P_diamond_list
 from math import ceil
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
+
 def index(request):
-    return render(request, 'ram_app/index.html')
+    service=P_stone.objects.all()
+    if request.method=="GET":
+        st=request.GET.get('servicename')
+        if st!=None:
+            service=P_stone.objects.filter(p_name=st)
+    params={'service':service}
+    return render(request, 'ram_app/index.html',params)
 
 
 def p_stone(request):
@@ -26,12 +34,20 @@ def jewel(request):
     return render(request,'ram_app/jewel.html',params)
 
 def diamond(request):
-    diamond_list=P_diamond.objects.all()
-    n= len(diamond_list)
-    nSlides= n//4 + ceil((n/4) + (n//4))
-    params={'no_of_slides':nSlides, 'range':range(1,nSlides), 'diamond_list':diamond_list}
+    diamondshape_list=P_diamond_shape.objects.all()
+    # diamond_list=P_diamond_list.objects.filter(category_id=category_id).all().values()[0]
+    category_id=request.GET.get('category')
+    if category_id:
+        diamond_list=P_diamond_list.objects.filter(category=category_id)
+    else:
+        diamond_list=P_diamond_list.objects.all()
+    params={'diamondshape_list':diamondshape_list,'diamond_list':diamond_list}
     return render(request,'ram_app/diamond.html',params)
-
+# diamondprincess_list=P_diamond_princess.objects.all()
+    # diamondoval_list=P_diamond_oval.objects.all()
+    # diamondpear_list=P_diamond_pear.objects.all()
+    # diamondround_list=P_diamond_round.objects.all()
+    # params={'diamondshape_list':diamondshape_list,'diamondprincess_list':diamondprincess_list,'diamondround_list':diamondround_list,'diamondpear_list':diamondpear_list,'diamondoval_list':diamondoval_list}
 def pearl(request):
     pearl_list=P_pearl.objects.all()
     n= len(pearl_list)
@@ -89,8 +105,8 @@ def ruby(request):
     return render(request,'ram_app/ruby.html',params)
 
 def prodview(request, myid):
-   product=P_diamond.objects.filter(id=myid)
-   print(product)
+   product=P_diamond_list.objects.filter(id=myid).all().values()[0]
+   print(dir(product))
    return render(request,'ram_app/prodView.html', {'product':product})
 
 def contact(request):
@@ -104,3 +120,16 @@ def contact(request):
         contact=Contact(name=name,phone=phone,email=email,desc=desc)
         contact.save()
     return render(request,'ram_app/contact.html')
+
+def checkout(request):
+    return render(request, 'ram_app/checkout.html')
+
+def newsignup(request):
+    form=UserCreationForm
+    return render(request,'ram_app/form.html',{"form:":form}) 
+
+def s(request):
+    s_st=list(P_stone.objects.all())
+    s_list=s_st[0:3]
+    params={'s_sto':s_st}
+    return render(request,'ram_app/s.html',params)

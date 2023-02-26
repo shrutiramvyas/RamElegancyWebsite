@@ -1,107 +1,60 @@
 {% extends 'ram_app/basic.html' %}
 {% load static %}
 {% block css %}
-<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/basic.css' %}">{% endblock %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;800&display=swap" rel="stylesheet">
+<!-- {% block css1 %}
+<!-- <style>
+  /* .e-container{
+      justify-content: center;
+      align-items: center;
+  }
 
-{% block css1 %}
-<style>
-    .container {
-        background-color: whitesmoke;
-    }
+  .e-container .e-row {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .e-container .e-row .e-col img{
+      height:300px;
+      width:290px;
 
-    .container .row {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  }
+  .e-col {
+    width: 25%;
+    text-align: center;
+}
+.e-col:hover{
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
 
-    .container .row .col {
-
-        height: 580px;
-        width: 350px;
-        border: 2px solid rgb(190, 156, 68);
-        margin: 10px 20px;
-        box-shadow: 3px 4px 2px rgb(199, 162, 69);
-    }
-    .container .row .col:hover{
-        box-shadow: 3px 4px 2px rgb(199, 162, 69),-3px -4px 2px rgb(199, 162, 69)
-
-    }
-
-    .container .row .col .card {
-        justify-content: center;
-        align-items: center;
-        height: 350px;
-        width: 300px;
-    }
-
-    .container .row .col .card img {
-        margin-left: 22px;
-        justify-content: center;
-        align-items: center;
-        height: 300px;
-        width: 300px;
-    }
-
-    .container .row .col .card h5 {
-        font-family: 'Playfair Display', serif;
-        color: rgb(51, 51, 45);
-        text-align: center;
-        font-size: 1.5rem;
-        margin:10px;
-        
-    }
-
-    .container .row .col .card p {
-        font-family: Arial, Helvetica, sans-serif;
-        color: rgb(51, 51, 45);
-        text-align: center;
-        font-size: 1.2rem;
-        margin:10px;
-        
-    }
-    .container .row .col .card .card-body button{
-        margin-left:50px;
-        background-color:rgb(134, 202, 160);
-        text-decoration: none;
-        border-radius:10px;
-    }
-    .btn{
-    margin:1px;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 2px;
-    border: 2px solid white;
-    border-radius: 4px;
-    background-color: white;
-    color: black;
-    font-family: 'Rubik', sans-serif;
-    font-size: 1.5rem;
-    transition: all 0.2s ease-out 0s;
-    }
-
-</style>
-{% endblock %}
+.e-container {
+    max-width: 1270px;
+    margin: 0 auto;
+}
+.e-container .e-row .e-col p{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 20px;
+    font-style:bold;
+    font-weight: 600;
+    color:rgb(78, 61, 16);
+} */
+    </style> -->
+{% endblock %} -->
 {% block body %}
 <h1>Emerald</h1>
 <hr>
-<div class="container">
-    <div class="row">
-        {% for i in emerald_list %}
-        <div class="col" style=" margin: 5px 0px; ">
-            <div class="card" style="width: 18rem;">
-                <img src="/media/{{i.image}}" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{i.emerald_name}}</h5>
-                    <p class="card-text">{{i.d_color}} {{i.d_clearity}} {{i.d_shape}} {{i.d_carat}} carat {{i.d_desc}}</p>
-                    
-                    <h5>{{i.price}}</h5>
-                    <a href="#" class="btn btn-success">Add To Cart</a>
-                </div>
-            </div>
-            
-        </div>
+<div class="e-container">
+    <div class="e-row">
+    {% for i in emerald_list %}
+   
+        <div class="e-col">
+            <a href="prodview" style="text-decoration: none;"><img src="/media/{{i.image}}" alt="...">
+            <p>{{i.d_carat}}<br>{{i.d_shape}}<br>{{i.emerald_name}}</p>
+        </div></a>
+    
 {% endfor %}
-    </div>
+</div>
 </div>
 {% endblock %}

@@ -1,22 +1,113 @@
 {% extends 'ram_app/basic.html' %}
 {% load static %}
-<!-- {% block title %} {% endblock %} -->
 {% block css %}
-<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
-{% block css1 %}
-<style>
-    #home::before {
-        background:url('{% static "r_assets/img/pic8.png" %}') no-repeat center center/cover;
-    }
-</style>
+<link rel="stylesheet" href="{% static 'r_assets/rcss/basic.css' %}">
 {% endblock %}
-{% block body %}
 
-<section id="home">
-    <video width="250" height="250" autoplay>  <source src="{% static 'r_assets/img/Ram_Elegancy.mp4' %}" type="video/mp4"></video>
-    <h1 class="h-primary">Stones and Jewellery Has the Power to Makes You Feel Unique</h1>
-    <button class="btn">Shop Now</button>
-</section>
+{% block css1%}
+<style>
+    #pure-container {
+        background-color: #654e4e;
+        position: relative;
+        padding-top: 68%;
+        background-size: cover;
+        overflow: hidden;
+    }
+
+    #pure-container a {
+        display: inline-block;
+        position: absolute;
+        width: 19%;
+        height: 26%;
+        transform: rotate(45deg);
+        top: 0;
+        overflow: hidden;
+        opacity: 0.5;
+        transition: .3s opacity;
+        color: #fff;
+        font-family: Avenir, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: .2rem;
+        font-size: .5rem;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    }
+
+    #pure-container a:hover,
+    #pure-container a.highlighted {
+        opacity: 9;
+    }
+
+    #pure-container a span {
+        display: inline-block;
+        transform: rotate(-45deg);
+        position: relative;
+        z-index: 5;
+        text-align: center;
+        width: 100%;
+        left: 25%;
+        top: -36%;
+        font-size: 2rem;
+    }
+
+    #pure-container a img {
+        width: 100%;
+        transform: rotate(-45deg) scale(1.4);
+    }
+
+    a#woman {
+        margin-top: 3.2%;
+        left: 34.4%;
+    }
+
+    a#man {
+        margin-top: 16.2%;
+        left: 21%;
+
+    }
+
+    a#child {
+        left: 22%;
+        margin-top: 43.3%;
+
+    }
+
+    a#pr {
+        left: 35.4%;
+        margin-top: 30%;
+
+    }
+
+    a#spr {
+        left: 49%;
+        margin-top: 16.8%;
+
+    }
+
+    a#jew {
+        left: 49.8%;
+        margin-top: 44%;
+
+    }
+</style>{% endblock %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Ubuntu&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+{% block body %}
+{% load static %}
+<div class="pic-con">
+    <div id="pure-container">
+        <a href="#" id="woman"><img src="{% static 'r_assets/img/women.jpg' %}" alt><span>Women</span></a>
+        <a href="#" id="man"><img src="{% static 'r_assets/img/men.jpg' %}" alt><span>Men</span></a>
+        <a href="#" id="child"><img src="{% static 'r_assets/img/rashi.jpg' %}" alt><span>RASHI</span></a>
+        <a href="p_stone" id="pr"><img src='{% static "r_assets/img/pic2.jpg" %}' alt><span>PRECIOUS</span></a>
+        <a href="sp_stone" id="spr"><img src='{% static "r_assets/img/sp5.jpg" %}'
+                alt><span>SEMI<br>PRECIOUS</span></a>
+        <a href="#" id="jew"><img src='{% static "r_assets/img/j3.jpg" %}' alt><span>Jewellery</span></a>
+    </div>
+</div>
 
 <section class="describe-content">
     <h1 class="h-secondary center">Put a gem in your life</h1>
@@ -55,11 +146,11 @@
 
 </section>
 
-<section class="services-container">
+<section class="services-container" id="stonesjewellery">
     <h1 class="h-primary center">Gems from the earth</h1>
     <div id="services">
         <div class="box">
-          <a href="p_stone"> <img src='{% static "r_assets/img/pic2.jpg" %}' alt=""></a> 
+            <a href="p_stone"> <img src='{% static "r_assets/img/pic2.jpg" %}' alt=""></a>
             <h2 class="h-secondary center">Precious Stones</h2>
         </div>
         <div class="box">
@@ -69,13 +160,12 @@
         <div class="box">
             <a href="jewel"><img src='{% static "r_assets/img/wall-img/pic3.jpg" %}' alt=""></a>
             <h2 class="h-secondary center">Jewellery Selections</h2>
-        
+
         </div>
     </div>
 </section>
-{% endblock %}
-{% block js %} 
-<script>
-   
-</script>
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+
+
+
 {% endblock %}

@@ -1,0 +1,189 @@
+{% extends 'ram_app/basic.html' %}
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" media="screen">
+{% block css1 %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Montserrat:wght@100&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
+    rel="stylesheet">
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
+<style>
+
+    #table{
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+    .table-container{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-container .table .row1 .d-img img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .table-container .table thead {
+        background-color: rgb(14, 14, 14);
+    }
+
+    .table-container .table tr th {
+        font-family: 'Rubik', sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        margin: 10px 10px;
+        padding: 15px 39px;
+        color: white;
+    }
+    .table-container .table tbody .row1 td{
+        justify-content: space-evenly;
+        margin:auto;
+        align-items: center;
+        padding:3px 0px 3px 20px;
+        font-size: 18px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        
+    }  
+</style>
+
+{% endblock %}
+{% block body %}
+<h1>Diamond</h1>
+<hr>
+<h5>Choose your Diamond Shape</h5>
+<div class="container">
+    <div class="row">
+        {% for i in diamondshape_list %}
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="/media/{{i.image}}" alt="...">
+                <!-- <img src="/media/diamond_images/{{i.image}}" alt="..."> -->
+                <div class="card-body">
+                    <!-- <h5 class="card-title"></h5>
+                    <p class="card-text">{{i.d_color}} {{i.d_clearity}} {{i.d_shape}} {{i.d_carat}} carat
+                        {{i.d_desc|slice:"0:5"}}...
+                    </p> -->
+                    <h4 style="font-family: 'Montserrat', sans-serif;
+                    font-size:20px; padding:4px 7px;white-space: nowrap;
+    margin:2px 30px;
+    ">{{i.ds_name}}
+                        <!-- <span style="box-sizing: border-box;"><h5></h5></span> -->
+                        <!-- <span id="divpr{{i.id}}" class="divpr">
+                        <button id="diamond{{i.id}}" class="btn btn-success cart">Add To Cart</button></span>
+                    <a href="/ram_app/products/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-success cart">Quick
+                            View</button></a> -->
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<h5>Select Price and Carat</h5>
+<div class="price-box">
+    <div class="price-wrapper">
+        <header>
+            <h2>Price Range</h2>
+        </header>
+        <div class="price-input">
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Min</span>
+                <input type="number" class="input-min" value="0">
+            </div>
+            <div class="separator">-</div>
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Max</span>
+                <input type="number" class="input-max" value="1000000">
+            </div>
+        </div>
+        <div class="slider">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min" min="0" max="1000000" value="0" step="10000">
+            <input type="range" class="range-max" min="0" max="1000000" value="1000000" step="10000">
+        </div>
+    </div>
+
+    <!-- carat -->
+    <div class="carat-wrapper">
+        <header>
+            <h2>Select Carat</h2>
+        </header>
+        <input type="range" min="0.1" max="3.30" step="0.1" value="1" id="scale">Carat Size: <text
+            style=" font-family:'Rubik', sans-serif;font-size:20px; font-weight: 100;" id="spanscale">1</text>
+    </div>
+</div>
+</div>
+<div class="table-container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>Shape</th>
+                <th>Carat</th>
+                <th>Color</th>
+                <th>Clarity</th>
+                <th>Available Quantity</th>
+                <th>Price Per Piece</th>
+                <th>WishList</th>
+                <th>QuickView</th>
+                <th>Buy Now</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row1">
+                <td>1</td>
+                <td class="d-img"><img src='{% static "r_assets/img/diamond_list/princess_diamond.png" %}'></td>
+                <td>PRINCESS</td>
+                <td>0.80</td>
+                <td>G</td>
+                <td>VS1</td>
+                <td>1</td>
+                <td>₹ 32,500</td>
+                <td><i class="fa-thin fa-heart fa-2x"></i></td>
+                <td><i class="fa-thin fa-eye fa-2x"></i>View Details</td>
+                <td> <span style="box-sizing: border-box;"></span>
+                    <span id="divpr{{i.id}}" class="divpr">
+                        <button id="diamond{{i.id}}" class="btn btn-success cart"
+                            style="color:azure;background-color: black;">Buy Now</button></span>
+                </td>
+            </tr>
+            <tr class="row1">
+                <td>2</td>
+                <td class="d-img"><img src='{% static "r_assets/img/diamond_list/princess_diamond.png" %}'></td>
+                <td>PRINCESS</td>
+                <td>0.80</td>
+                <td>G</td>
+                <td>VS1</td>
+                <td>1</td>
+                <td>₹ 32,500</td>
+                <td><i class="fa-thin fa-heart fa-2x"></i></td>
+                <td><i class="fa-thin fa-eye fa-2x"></i>View Details</td>
+                <td> <span style="box-sizing: border-box;"></span>
+                    <span id="divpr{{i.id}}" class="divpr">
+                        <button id="diamond{{i.id}}" class="btn btn-success cart"
+                            style="color:azure;background-color: black;">Buy Now</button></span>
+                </td>
+            </tr>
+            
+
+        </tbody>
+    </table>
+</div>
+
+</section>
+
+
+
+
+
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import IntegerField
 
 # Create your models here.
 class P_stone(models.Model):
@@ -24,8 +25,17 @@ class Jewellery(models.Model):
     def __str__(self):  
         return self.j_name
 
-class P_diamond(models.Model):
+class P_diamond_shape(models.Model):
+    ds_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to="diamond_images",default="")
+    category_id=models.IntegerField(default=0)
+
+    def __str__(self):  
+        return self.ds_name
+
+class P_diamond_list(models.Model):
     d_id=models.AutoField
+    category_id=models.IntegerField(default=0)
     diamond_name=models.CharField(max_length=30)
     image=models.ImageField(upload_to="diamond_images",default="")
     d_color=models.CharField(max_length=30)
@@ -39,6 +49,70 @@ class P_diamond(models.Model):
 
     def __str__(self):  
         return self.diamond_name
+
+class P_diamond_round(models.Model):
+    d_id=models.AutoField
+    diamondround_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to="diamond_images",default="")
+    d_color=models.CharField(max_length=30)
+    d_clearity=models.CharField(max_length=20)
+    d_shape=models.CharField(max_length=20)
+    d_carat=models.CharField(max_length=20)
+    # stone_inclusion=models.CharField(max_length=30)
+    price=models.IntegerField(default=0)
+    d_desc=models.CharField(max_length=30)
+    pub_date=models.DateField()
+
+    def __str__(self):  
+        return self.diamondround_name
+
+class P_diamond_pear(models.Model):
+    d_id=models.AutoField
+    diamondpear_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to="diamond_images",default="")
+    d_color=models.CharField(max_length=30)
+    d_clearity=models.CharField(max_length=20)
+    d_shape=models.CharField(max_length=20)
+    d_carat=models.CharField(max_length=20)
+    # stone_inclusion=models.CharField(max_length=30)
+    price=models.IntegerField(default=0)
+    d_desc=models.CharField(max_length=30)
+    pub_date=models.DateField()
+
+    def __str__(self):  
+        return self.diamondpear_name
+
+class P_diamond_oval(models.Model):
+    d_id=models.AutoField
+    diamondoval_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to="diamond_images",default="")
+    d_color=models.CharField(max_length=30)
+    d_clearity=models.CharField(max_length=20)
+    d_shape=models.CharField(max_length=20)
+    d_carat=models.CharField(max_length=20)
+    # stone_inclusion=models.CharField(max_length=30)
+    price=models.IntegerField(default=0)
+    d_desc=models.CharField(max_length=30)
+    pub_date=models.DateField()
+
+    def __str__(self):  
+        return self.diamondoval_name
+
+class P_diamond_princess(models.Model):
+    d_id=models.AutoField
+    diamondprincess_name=models.CharField(max_length=30)
+    image=models.ImageField(upload_to="diamond_images",default="")
+    d_color=models.CharField(max_length=30)
+    d_clearity=models.CharField(max_length=20)
+    d_shape=models.CharField(max_length=20)
+    d_carat=models.CharField(max_length=20)
+    # stone_inclusion=models.CharField(max_length=30)
+    price=models.IntegerField(default=0)
+    d_desc=models.CharField(max_length=30)
+    pub_date=models.DateField()
+
+    def __str__(self):  
+        return self.diamondprincess_name
 
 
 class P_emerald(models.Model):

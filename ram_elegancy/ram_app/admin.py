@@ -1,16 +1,15 @@
 from django.contrib import admin
-from .models import Bangels, Earring, Mangalsutra, P_stone,Sp_stone,Jewellery,P_diamond,P_emerald,P_yellow_sapphire,P_blue_sapphire, P_ruby, P_coral,P_hessonite_garnet,P_pearl,P_cateye,Ring,Nosepin,Bracelet,Pendent,Necklace,Contact
+from .models import Bangels, Earring, Mangalsutra, P_stone,Sp_stone,Jewellery,P_emerald,P_yellow_sapphire,P_diamond_shape,P_diamond_round,P_diamond_oval,P_diamond_princess,P_diamond_pear,P_blue_sapphire, P_ruby, P_coral,P_hessonite_garnet,P_pearl,P_cateye,Ring,Nosepin,Bracelet,Pendent,Necklace,Contact,P_diamond_list
 # Register your models here.
 
 admin.site.register(P_stone)
 admin.site.register(Sp_stone)
 admin.site.register(Jewellery)
-admin.site.register(P_diamond)
 admin.site.register(P_emerald)
 admin.site.register(P_yellow_sapphire)
 admin.site.register(P_blue_sapphire)
-admin.site.register( P_ruby)
-admin.site.register( P_coral)
+admin.site.register(P_ruby)
+admin.site.register(P_coral)
 admin.site.register(P_hessonite_garnet)
 admin.site.register(P_pearl)
 admin.site.register(P_cateye)
@@ -23,3 +22,9 @@ admin.site.register(Bracelet)
 admin.site.register(Pendent)
 admin.site.register(Necklace)
 admin.site.register(Contact)
+admin.site.register(P_diamond_round)
+admin.site.register(P_diamond_oval)
+admin.site.register(P_diamond_pear)
+admin.site.register(P_diamond_princess)
+admin.site.register(P_diamond_shape)
+admin.site.register(P_diamond_list)

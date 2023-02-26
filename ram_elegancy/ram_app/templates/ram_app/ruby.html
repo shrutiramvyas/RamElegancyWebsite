@@ -2,7 +2,7 @@
 {% load static %}
 {% block css %}
 <link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
-{% block css1 %}
+<!-- {% block css1 %}
 <style>
     .container {
         background-color: whitesmoke;
@@ -80,27 +80,19 @@
     }
 
 </style>
-{% endblock %}
+{% endblock %} -->
 {% block body %}
 <h1>Ruby</h1>
 <hr>
-<div class="container">
-    <div class="row">
+<div class="e-container">
+    <div class="e-row">
         {% for i in ruby_list %}
-        <div class="col" style=" margin: 5px 0px; ">
-            <div class="card" style="width: 18rem;">
-                <img src="/media/{{i.image}}" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{i.ruby_name}}</h5>
-                    <p class="card-text">{{i.d_color}} {{i.d_clearity}} {{i.d_shape}} {{i.d_carat}} carat{{i.d_desc}}</p>
-                    
-                    <h5>{{i.price}}</h5>
-                    <a href="#" class="btn btn-success">Add To Cart</a>
-                </div>
-            </div>
-            
-        </div>
-{% endfor %}
+        <div class="e-col">
+            <a href="prodview" style="text-decoration: none;"><img src="/media/{{i.image}}" alt="...">
+                <p>{{i.d_carat}}<br>{{i.d_shape}}<br>{{i.ruby_name}}</p>
+        </div></a>
+        {% endfor %}
     </div>
+
 </div>
 {% endblock %}

@@ -1,8 +1,15 @@
 {% extends 'ram_app/basic.html' %}
 {% load static %}
+
 {% block css %}
-<link rel="stylesheet" href="{% static 'r_assets/rcss/style.css' %}">{% endblock %}
+<link rel="stylesheet" href="{% static 'r_assets/rcss/basic.css' %}">{% endblock %}
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" media="screen">
+
 {% block css1 %}
+<link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400;500&family=Baloo+Bhaijaan+2&family=Montserrat:wght@100&family=Poppins:ital,wght@0,200;1,200&family=Rubik:wght@300&display=swap"
+    rel="stylesheet">
+ 
 <style>
     .container {
         background-color: whitesmoke;
@@ -10,45 +17,47 @@
 
     .container .row {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
 
     .container .row .col {
 
-        height: 580px;
-        width: 350px;
-        border: 2px solid rgb(190, 156, 68);
+        height: 120px;
+        width: 115px;
+        border: 0px solid rgb(197, 195, 189);
         margin: 10px 20px;
-        box-shadow: 3px 4px 2px rgb(199, 162, 69);
+        box-shadow: 3px 4px 2px rgb(197, 195, 189);
     }
 
     .container .row .col:hover {
-        box-shadow: 3px 4px 2px rgb(199, 162, 69), -3px -4px 2px rgb(199, 162, 69)
+        box-shadow: 3px 4px 2px rgb(197, 195, 189), -3px -4px 2px rgb(197, 195, 189);
     }
 
     .container .row .col .card {
         justify-content: center;
         align-items: center;
-        height: 350px;
-        width: 300px;
+        height: 250px;
+        width: 200px;
     }
 
     .container .row .col .card img {
         margin-left: 22px;
         justify-content: center;
         align-items: center;
-        height: 300px;
-        width: 300px;
+        height: 70px;
+        width: 70px;
     }
+
 
     .container .row .col .card h5 {
         font-family: 'Playfair Display', serif;
         color: rgb(51, 51, 45);
+        justify-content: center;
         text-align: center;
         font-size: 1.5rem;
-        margin: 10px;
-
+        margin: 2px 7px;
     }
 
     .container .row .col .card p {
@@ -56,7 +65,7 @@
         color: rgb(51, 51, 45);
         text-align: center;
         font-size: 1.2rem;
-        margin: 10px;
+        margin: 2px 30px;
 
     }
 
@@ -65,6 +74,17 @@
         background-color: rgb(49, 172, 33);
         text-decoration: none;
         border-radius: 10px;
+    }
+
+    h5 {
+        font-family: 'Playfair Display', serif;
+        color: rgb(51, 51, 45);
+        justify-content: center;
+        text-align: center;
+        font-size: 1.2rem;
+        margin: 10px 15px;
+
+
     }
 
     .btn {
@@ -80,32 +100,402 @@
         font-size: 1.5rem;
         transition: all 0.2s ease-out 0s;
     }
+
+
+    /* Import Google Font - Poppins */
+
+    .price-box {
+        box-sizing: border-box;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 25vh;
+        background: whitesmoke;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .price-wrapper {
+        width: 500px;
+        background-color: rgb(197, 195, 189);
+        border-radius: 10px;
+        padding: 10px 12px 28px;
+        margin: 20px;
+
+    }
+
+    ::selection {
+        color: #fff;
+        background: #17A2B8;
+    }
+
+    header h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    header p {
+        margin-top: 5px;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .price-input {
+        width: 100%;
+        display: flex;
+        margin: 13px 0 20px;
+    }
+
+    .price-input .field {
+        display: flex;
+        width: 100%;
+        height: 45px;
+        align-items: center;
+    }
+
+    .field input {
+        width: 100%;
+        height: 100%;
+        outline: none;
+        font-size: 20px;
+        font-weight: 200;
+        margin-left: 12px;
+        border-radius: 5px;
+        text-align: center;
+        border: 1px solid #999;
+        -moz-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    .price-input .separator {
+        width: 130px;
+        display: flex;
+        font-size: 19px;
+        font-weight: 200;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slider {
+        height: 5px;
+        position: relative;
+        background: #ddd;
+        border-radius: 5px;
+    }
+
+    .slider .progress {
+        height: 100%;
+        left: 0%;
+        right: 0%;
+        position: absolute;
+        border-radius: 5px;
+        background: #17A2B8;
+    }
+
+    .range-input {
+        position: relative;
+    }
+
+    .range-input input {
+        position: absolute;
+        width: 100%;
+        height: 5px;
+        top: -5px;
+        background: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        height: 17px;
+        width: 17px;
+        border-radius: 50%;
+        background: #17A2B8;
+        pointer-events: auto;
+        -webkit-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+        height: 17px;
+        width: 17px;
+        border: none;
+        border-radius: 50%;
+        background: #17A2B8;
+        pointer-events: auto;
+        -moz-appearance: none;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .carat-wrapper {
+        width: 500px;
+        background-color: rgb(197, 195, 189);
+        border-radius: 10px;
+        padding: 20px 25px 40px;
+        margin: 20px;
+
+    }
+
+    #table {
+        display: inline-block;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .table-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-container .table .row1 .d-img img {
+        height: 30px;
+        width: 30px;
+    }
+
+    .table-container .table thead {
+        background-color: rgb(14, 14, 14);
+    }
+
+    .table-container .table tr th {
+        font-family: 'Rubik', sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        margin: 10px 10px;
+        padding: 15px 45px;
+        color: white;
+    }
+
+    .table-container .table tbody .row1 td {
+        justify-content: space-evenly;
+        margin: 0 auto;
+        align-items: center;
+        padding: 3px 0px 3px 20px;
+        font-size: 23px;
+        font-family: 'Rubik', sans-serif;
+        font-weight: 400;
+        text-align: center;
+
+    }
 </style>
+
 {% endblock %}
+<script src="https://kit.fontawesome.com/0091fe2ea3.js" crossorigin="anonymous"></script>
 {% block body %}
 <h1>Diamond</h1>
 <hr>
+<h5>Choose your Diamond Shape</h5>
 <div class="container">
     <div class="row">
-        {% for i in diamond_list %}
+        {% for i in diamondshape_list %}
         <div class="col">
             <div class="card" style="width: 18rem;">
-                <img src="/media/{{i.image}}" alt="...">
+                <a href="#table-con/?category={{i.category_id}}"><img src="/media/{{i.image}}" alt="..."></a>
                 <div class="card-body">
-                    <h5 class="card-title">{{i.diamond_name}}</h5>
-                    <p class="card-text">{{i.d_color}} {{i.d_clearity}} {{i.d_shape}} {{i.d_carat}} carat
-                        {{i.d_desc|slice:"0:5"}}...
-                    </p>
-
-                    <h5>₹ {{i.price}}</h5>
-                    <span id="divpr{{i.id}}" class="divpr">
+                    <h4 style="font-family: 'Montserrat', sans-serif;
+                    font-size:20px; padding:3px 1px;white-space: nowrap;
+    margin:2px 25px;
+    ">{{i.ds_name}}
+                        <!-- <span style="box-sizing: border-box;"><h5></h5></span> -->
+                        <!-- <span id="divpr{{i.id}}" class="divpr">
                         <button id="diamond{{i.id}}" class="btn btn-success cart">Add To Cart</button></span>
                     <a href="/ram_app/products/{{i.id}}"> <button id="qv{{i.id}}" class="btn btn-success cart">Quick
-                            View</button></a>
+                            View</button></a> -->
                 </div>
             </div>
         </div>
+
         {% endfor %}
     </div>
 </div>
+
+<h5>Select Price and Carat</h5>
+<div class="price-box">
+    <div class="price-wrapper">
+        <header>
+            <h2>Price Range</h2>
+        </header>
+        <div class="price-input">
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Min</span>
+                <input type="number" class="input-min" value="0">
+            </div>
+            <div class="separator">-</div>
+            <div class="field">
+                <span style="font-family:'Rubik', sans-serif;font-size:20px;">Max</span>
+                <input type="number" class="input-max" value="1000000">
+            </div>
+        </div>
+        <div class="slider">
+            <div class="progress"></div>
+        </div>
+        <div class="range-input">
+            <input type="range" class="range-min" min="0" max="10000000" value="0" step="10000">
+            <input type="range" class="range-max" min="0" max="10000000" value="10000000" step="10000">
+        </div>
+    </div>
+
+    carat
+ <div class="carat-wrapper">
+    <header>
+        <h2>Select Carat</h2>
+    </header>
+    <input type="range" min="0.1" max="3.30" step="0.1" value="1" id="scale">Carat Size: <text
+        style=" font-family:'Rubik', sans-serif;font-size:25px; font-weight: 100;" id="spanscale">1</text>
+
+</div>
+<div class="carat-wrapper">
+    <header>
+        <h2>Price per Carat</h2>
+    </header>
+    <input type="range" min="8000" max="60000" step="1200" value="1" id="scale2">Price Per Carat: <text
+        style=" font-family:'Rubik', sans-serif;font-size:25px; font-weight: 100;" id="spanscale2">0</text>
+</div>
+</div>
+</div>
+<div class="table-container" id="table-con">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th></th>
+                <th>Shape</th>
+                <th>Carat</th>
+                <th>Color</th>
+                <th>Clarity</th>
+                <th>Available Quantity</th>
+                <th>Price Per Piece</th>
+                <th>WishList</th>
+                <th>QuickView</th>
+                <th>Buy Now</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in diamond_list %}
+            <tr class="row1">
+                <td>{{i.id}}</td>
+                <td class="d-img"><img src="/media/{{i.image}}"></td>
+                <td>{{i.d_shape}}</td>
+                <td>{{i.d_carat}}</td>
+                <td>{{i.d_color}}</td>
+                <td>{{i.d_clearity}}</td>
+                <td>1</td>
+                <td>₹{{i.price}}</td>
+                <td><i class="fas fa-heart fa-1x"></i></td>
+                <td><a href="prodview" style="text-decoration:none; color:black;"><i class="fas fa-eye fa-1x"></i> <a
+                            href="/ram_app/products/{{i.id}}"> <button id="qv{{i.id}}"
+                                class="btn btn-success cart">Quick
+                                View</button></a></a></td>
+                <td> <span style="box-sizing: border-box;"></span>
+                    <span id="divpr{{i.id}}" class="divpr">
+                        <button id="diamond{{i.id}}" class="btn btn-success cart"
+                            style="color:azure;background-color: black; cursor: pointer;">Buy Now</button></span>
+                </td>
+            </tr>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</section>
+
+
+{% endblock %}
+{% block js %}
+<script>document.getElementById("scale").oninput = function () {
+        document.getElementById("spanscale").innerHTML = this.value;
+    }
+    document.getElementById("scale2").oninput = function () {
+        document.getElementById("spanscale2").innerHTML = this.value;
+    }
+    const rangeInput = document.querySelectorAll(".range-input input"),
+        priceInput = document.querySelectorAll(".price-input input"),
+        range = document.querySelector(".slider .progress");
+    let priceGap = 1000;
+
+    priceInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minPrice = parseInt(priceInput[0].value),
+                maxPrice = parseInt(priceInput[1].value);
+
+            if ((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max) {
+                if (e.target.className === "input-min") {
+                    rangeInput[0].value = minPrice;
+                    range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+                } else {
+                    rangeInput[1].value = maxPrice;
+                    range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                }
+            }
+        });
+    });
+    if (localStorage.getItem('stone_cart') == null) {
+            var cart_list = {};
+        }
+        else {
+            cart_list = JSON.parse(localStorage.getItem('stone_cart'));
+            document.getElementById('count_cart').innerHTML = Object.keys(cart_list).length;
+        }
+        $('.cart').click(function () {
+            var idstr = this.id.toString();
+            console.log(idstr);
+            if (cart_list[idstr] != undefined) {
+                qty = cart_list[idstr] + 1;
+                cart_list[idstr] = cart_list[idstr] + 1;
+            }
+            else {
+                cart_list[idstr] = 1;
+                // updateCart(cart_list);
+                qty = 1;
+                cart_list[idstr] = qty;
+            }
+            // console.log(cart_list);
+            localStorage.setItem('stone_cart', JSON.stringify(cart_list));
+            // console.log(Object.values(cart_list))
+            array = Object.values(cart_list)
+            let sum = 0
+            for (let i = 0; i < array.length; i++) {
+                sum += array[i];
+            }
+
+            document.getElementById('count_cart').innerHTML = sum;
+        });
+
+    rangeInput.forEach(input => {
+        input.addEventListener("input", e => {
+            let minVal = parseInt(rangeInput[0].value),
+                maxVal = parseInt(rangeInput[1].value);
+
+            if ((maxVal - minVal) < priceGap) {
+                if (e.target.className === "range-min") {
+                    rangeInput[0].value = maxVal - priceGap
+                } else {
+                    rangeInput[1].value = minVal + priceGap;
+                }
+            } else {
+                priceInput[0].value = minVal;
+                priceInput[1].value = maxVal;
+                range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
+                range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
+            }
+        });
+    });
+    function myFunction() {
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+</script>
 {% endblock %}

@@ -1,0 +1,680 @@
+/* Importing the fonts */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Body of the page */
+body {
+    background: #654e4e;
+}
+
+/* Styling all the elements in nav as a whole */
+nav {
+    background: #e28b88;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 100px;
+}
+
+/* Styling the logo */
+nav .logo {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
+/* Styling all the nav items as a whole */
+nav .nav-items {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 100px;
+}
+
+/* Styling the list items in the nav tag */
+nav .nav-items li {
+    list-style: none;
+    padding: 0 10px;
+}
+
+/* Styling each list items */
+nav .nav-items li a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/* Setting the hover colour on the list items*/
+
+nav .nav-items li a:hover {
+    color: #19191b;
+}
+
+nav .searchbar {
+    position: relative;
+}
+
+/* Styling the search box where the
+      input would be given */
+nav .searchbar input[type="text"] {
+    border: 0;
+    padding: 0;
+    width: 0px;
+    height: 35px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Styling the search bar icon */
+nav .searchbar .icon {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35px;
+    height: 100%;
+    background: none;
+    border-radius: 3px;
+    color: #fff;
+    transition: all 0.5s 0.3s ease;
+}
+
+nav .searchbar .icon i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+nav .searchbar .icon.active {
+    background: #062333;
+    transition: all 0.3s ease;
+}
+
+nav .searchbar input[type="text"].active {
+    width: 250px;
+    padding: 0 10px;
+    transition: all 0.5s 0.2s ease;
+}
+
+nav .licon {
+    display: flex;
+}
+
+nav .licon li {
+    list-style: none;
+    display: flex;
+}
+
+nav .licon li a {
+    padding: 0 20px;
+}
+
+/* Changing the colour of the login
+      icon when hovered over*/
+
+.fa-user-circle:hover {
+    color: #0e0d0d !important;
+}
+
+#logo img {
+    height: 43px;
+    margin: 3px 2px;
+}
+
+nav a {
+    margin: 2px 6px;
+    padding: 15px 3px;
+}
+
+#DROPDOWN .nav-items li .dropdown {
+    float: left;
+    overflow: hidden;
+    background-color: rgb(161, 156, 156);
+}
+
+
+
+.nav-items li a:hover,
+.dropdown:hover {
+
+    color: #141313;
+    border: 0px solid black;
+    border-radius: 3px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #131111;
+    width: 100%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 10px;
+}
+
+.dropdown-content .header {
+    background: rgb(255, 254, 254);
+    padding: 16px;
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    background-color: rgb(161, 156, 156);
+    color: rgb(226, 161, 161);
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    border-top: 6px solid rgb(156, 150, 149);
+    float: left;
+    width: 20%;
+    padding: 3px;
+    background-color: rgb(161, 156, 156);
+    /* height: 440px; */
+    color: black;
+}
+
+.column a {
+    float: none;
+    color: black;
+    padding: 3px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.vl {
+    border-left: 1px solid rgb(70, 71, 70);
+    height: 400px;
+    position: absolute;
+    left: 25%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.v2 {
+    border-left: 1px solid rgb(241, 243, 241);
+    height: 400px;
+    position: absolute;
+    left: 67%;
+    margin-left: -3px;
+    top: 0;
+}
+
+.column a:hover {
+    color: #050505;
+    border-radius: 6px;
+
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column h3,
+.column2 h3 {
+    color: rgb(15, 14, 14);
+    font-size: 20px;
+    font-family: 'Rubik', sans-serif;
+    margin-bottom: 4px;
+}
+
+.column2 {
+    width: 60%;
+    float: left;
+
+}
+
+/* account */
+
+.a-dropdown {
+
+    color: #797171;
+    border: 0px solid black;
+    border-radius: 3px;
+}
+
+.a-dropdown-content {
+    position: absolute;
+    background-color: #e4d1d1;
+    width: 30%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 52px;
+    margin-left: 1189px;
+}
+
+.a-dropdown.a-dropdown-content {
+    display: block;
+    background-color: rgb(117, 117, 117);
+    width: 31%;
+    margin-left: 915px;
+    margin-top: 35px;
+    text-decoration: none;
+}
+
+.a-asked {
+    height: 50px;
+    margin: 9px 5px;
+    padding: 6px;
+
+}
+
+.a-asked #create {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor: pointer;
+    text-decoration: none;
+    color: #3a3a3a;
+    font-weight: 700;
+    text-align: justify;
+    margin-left: -19px;
+    margin-top: 8px;
+}
+
+.a-asked #login {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor: pointer;
+    text-decoration: none;
+    color: #3a3a3a;
+    font-weight: 700;
+    text-align: justify;
+    margin-left: -19px;
+    margin-top: 10px;
+}
+
+.a-asked #create:hover {
+    color: rgb(190, 78, 78);
+}
+
+.a-asked #login:hover {
+    color: rgb(190, 78, 78);
+}
+
+.create-account hr {
+    width: 25%;
+    margin-top: 10px;
+    color: #0c0c0c;
+}
+
+.a-dropdown-content .a-asked p {
+    color: #3a3a3a;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.login-with-fb {
+    display: flex;
+    margin-left: 50px;
+}
+
+.login-with-fb .face {
+    display: block;
+    font-size: 11px;
+    line-height: 17px;
+    margin-left: 30px;
+    padding: 0;
+    font-weight: 600;
+    color: #3a3a3a;
+    text-transform: none;
+    text-align: center;
+}
+
+.login-with-fb .g {
+    display: block;
+    font-size: 11px;
+    line-height: 17px;
+    margin-left: 90px;
+    padding: 0;
+    font-weight: 600;
+    color: #3a3a3a;    
+    text-transform: none;
+    text-align: center;
+}
+
+.face a.facebookbtn {
+    display: inline-block;
+    background: #3b5998;
+    width: 82px;
+    padding: 5px 10px 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    border-radius: 3px;
+    height: 30px;
+}
+
+.g a.googlebtn {
+    display: inline-block;
+    background: #f46b55;
+    width: 82px;
+    padding: 5px 10px 5px;
+    overflow: hidden;
+    margin-top: 10px;
+    border-radius: 3px;
+    height: 30px;
+}
+
+/* body-section/imagecategory */
+#image-category::before {
+    background: url("C:\Users\LENOVO\Desktop\practice\wallpaper.jpg") no-repeat center center/cover;
+}
+
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 720px;
+    align-items: center;
+    padding: 3px 285px;
+}
+
+#home::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /* opacity: 0.80; */
+
+}
+
+/* INDEX PAGE */
+#home::before {
+    background:url('{% static " r_assets/img/wallpaper.jpg" %}') no-repeat center center/cover;
+}
+
+#services .box a {
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+#home h1 {
+    color: rgb(253, 250, 250);
+    text-align: center;
+
+}
+
+#home p {
+    color: white;
+    text-align: center;
+    font-size: 1.3rem;
+
+}
+
+/* description classes */
+.describe-content {
+    background-color: whitesmoke;
+    margin-top: 80px;
+}
+
+#describe {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5px;
+}
+
+#describe .icon {
+    display: inline-block;
+    width: 10px;
+    padding: 0px 10px;
+    vertical-align: top;
+}
+
+#describe .icon .des {
+    /* display:flex;
+   align-items: center;
+   justify-content: center;
+   height: 70px;
+   width: 70px;
+   background-color: white;
+   box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.192),
+               -2px -4px 5px 0px rgba(0, 0, 0, 0.192);
+   border-radius:50%; */
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
+    margin: auto;
+    border-radius: 50%;
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.192),
+        -2px -4px 5px 0px rgba(0, 0, 0, 0.192);
+}
+
+#describe .icon .des:hover {
+    box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.192),
+        -2px -4px 5px 0px rgba(0, 0, 0, 0.192);
+}
+
+.fa-certificate {
+    color: rgb(124, 129, 129);
+    margin-left: 18px;
+    margin-top: 20px;
+
+
+}
+
+.container-form .basic-form .fa-search {
+    color: cornsilk;
+
+}
+
+.fa-rupee-sign {
+    color: rgb(103, 175, 121);
+    margin-left: 22px;
+    margin-top: 20px;
+}
+
+.fa-gem {
+    color: rgb(0, 0, 0);
+    margin-left: 19px;
+    margin-top: 20px;
+}
+
+.fa-undo-alt {
+    color: rgb(73, 81, 122);
+    margin-left: 22px;
+    margin-top: 20px;
+}
+
+.fa-magic {
+    color: rgb(110, 83, 84);
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#des-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#describe .icon .desc p {
+    /* margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: -20px;
+    margin-inline-end: -17px; */
+    width: 100%;
+    display: inline-block;
+    margin-top: 15px;
+    color: black;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    font-style: bold;
+}
+#services {
+    margin: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#services .box {
+    /* border:2px solid brown; */
+    padding: 5px;
+    margin: 3px 6px;
+    border-radius: 28px;
+    background: url('r_assets/img/pic2.jpg');
+
+}
+
+#services .box img {
+    height: 380px;
+    width: 470px;
+    display: block;
+    margin: auto;
+    transition: 0.8s ease;
+}
+
+#services .box img:hover {
+    transform: scale(1.1);
+}
+
+#services .box p {
+    font-family: 'Rubik', sans-serif;
+}
+
+
+.h-secondary {
+    font-family: 'Rubik', sans-serif;
+    font-size: 2.1rem;
+    padding: 12px;
+}
+
+/* Utility classes */
+.h-primary {
+    font-size: 3.6rem;
+    padding: 12px;
+    font-family: 'Rubik', sans-serif;
+}
+
+.btn {
+    margin: 17px;
+    padding: 6px 20px;
+    border: 2px solid white;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-out 0s;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.center {
+    text-align: center;
+}
+
+/* contact section */
+#contact {
+    position: relative;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.7;
+    background-image: url("pic4.jpg");
+
+}
+#contact-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 34px;
+}
+
+#contact-box input,
+#contact-box textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 9px;
+    font-size: 1.1rem;
+}
+
+#contact-box form {
+    width: 40%;
+}
+
+#contact-box label {
+    font-size: 1.3rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+.prod-container{
+    display: flex;
+    margin:100px;
+
+}
+.e-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.e-container .e-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.e-container .e-row .e-col img {
+    height: 300px;
+    width: 290px;
+
+}
+
+.e-col {
+    width: 25%;
+    text-align: center;
+}
+
+.e-col:hover {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.e-container {
+    max-width: 1270px;
+    margin: 0 auto;
+}
+
+.e-container .e-row .e-col p {
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 20px;
+    font-style: bold;
+    font-weight: 600;
+    color: rgb(78, 61, 16);
+}
